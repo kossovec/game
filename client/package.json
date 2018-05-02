@@ -1,0 +1,28 @@
+{
+  "name": "first_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "konstantin.malov",
+  "license": "ISC",
+  "dependencies": {
+    "pixi.js": "^4.7.3",
+    "pixi-particles": "^2.1.5",
+    "lite-server":"^2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "7.1",
+    "babel-preset-env": "^1.6.1",
+    "fpsmeter": "^0.3.1",
+    "gulp": "^3.9.1",
+    "lite-server": "^2.2.2",
+    "webpack": "^3.8.1",
+    "webpack-stream":"^4.0.3",
+    "run-sequence": "^1.2.2",
+    "del": "^2.2.2"
+  }
+}
