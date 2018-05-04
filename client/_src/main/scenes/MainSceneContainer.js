@@ -70,7 +70,11 @@ export class MainSceneContainer extends PIXI.Container {
         button.buttonMode = true;
         button.anchor.x = 0.5;
         button.anchor.y = 0.5;
-        button.on("click", this.onButtonClick.bind(this, index));
+        if(__DESKTOP__){
+            button.on("click", this.onButtonClick.bind(this, index));
+        } else {
+            button.on("touchend", this.onButtonClick.bind(this, index));
+        }
         this.addChild(button);
         return button;
     }

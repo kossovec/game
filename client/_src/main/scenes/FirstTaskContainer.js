@@ -65,7 +65,6 @@ export class FirstTaskContainer extends PIXI.Container{
         let vecN = {x: vec.x * (vecL !== 0 ? 1 / vecL : 0), y: vec.y * (vecL !== 0 ? 1 / vecL : 0)};
         sprite.speed = vecL / this._animationDuaration;
         sprite.lenPerTic = {x: vecN.x * sprite.speed, y: vecN.y * sprite.speed};
-        sprite.scale.set(this._config.screenSizeData.scale);
         this._resizebleContainer.addChild(sprite);
         return sprite;
     }
