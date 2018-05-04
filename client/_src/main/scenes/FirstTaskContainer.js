@@ -12,10 +12,9 @@ export class FirstTaskContainer extends PIXI.Container{
         this._resizebleContainer = new PIXI.Container();
         this.addChild(this._resizebleContainer);
 
-        this._textureArray = ["spinObj_02.png", "bunny.png", "eggHead.png", "button.png", "spinObj_01.png"];
         this._spriteArray = [];
         for(let i = 0; i < elementQuantity; i++) {
-            this._spriteArray.push(this.createSprite());
+            this._spriteArray.push(this.createSprite(i));
         }
     }
 
@@ -33,7 +32,7 @@ export class FirstTaskContainer extends PIXI.Container{
             }
             if(this._animatedSpriteArray) {
                 this._animatedSpriteArray.forEach((value, index, array) => {
-                    if(value.animationDuaration == undefined){
+                    if(value.animationDuaration === undefined){
                         value.animationDuaration = this._animationDuaration;
                     }
 
@@ -44,21 +43,22 @@ export class FirstTaskContainer extends PIXI.Container{
                        }
                        value.x += value.lenPerTic.x;
                        value.y += value.lenPerTic.y;
+                       value.rotation += 3 * 3.1415927 / 180
                     }
                 })
             }
         }
     }
 
-    createSprite () {
-        let index = Math.floor(Math.random() * this._textureArray.length);
-        let sprite = new Sprite(PIXI.utils.TextureCache[this._textureArray[index]]);
+    createSprite (index) {
+        let i = Math.floor(Math.random() * this._config.cardArray.length);
+        let sprite = new Sprite(PIXI.utils.TextureCache[this._config.cardArray[i]]);
         sprite.anchor.set(0.5);
-        sprite.x = (Math.random() * 40) -20;
-        sprite.y = (Math.random() * 40) -20;
+        sprite.x = index;
+        sprite.y = index;
         sprite.destPosition = {
-            x: 500 + (Math.random() * 40) -20,
-            y: (Math.random() * 40) -20
+            x: 500 + index,
+            y: index
         };
         let vec = {x: sprite.destPosition.x - sprite.x, y: sprite.destPosition.y - sprite.y};
         let vecL = vec.x ** 2+ vec.y **2;

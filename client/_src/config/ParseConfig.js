@@ -5,6 +5,7 @@ export class ParseConfig {
         this._config = config;
         this._data = data;
         this.parseParticleConfig(data);
+        this.parseCardName(data);
 
     }
 
@@ -13,5 +14,10 @@ export class ParseConfig {
         for (let particlesConfig of particlesConfigs) {
             this._config.particleConfig.set(particlesConfig['name'], new ParticlesConfig(particlesConfig));
         }
+    }
+
+    parseCardName(data){
+       let cardArray = data['cards'];
+        this._config.cardArray = cardArray;
     }
 }
